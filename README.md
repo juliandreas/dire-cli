@@ -1,7 +1,7 @@
 <h1 align="center">Dire</h1>
 
 <p align="center">
-Go based CLI to automatically translate your i18n JSON files to any language
+Go based CLI to automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations
 </p>
 
 <p align="center">
@@ -35,15 +35,8 @@ npm install -g dire
    This creates a `.dire.yaml` file in your project root. Edit it to match your project structure.
 
 3. **Set Up API Keys**
-   Add your API keys as environment variables:
 
-   ```bash
-   DIRE_CLAUDE_API_KEY=your_api_key
-   DIRE_OPENAI_API_KEY=your_api_key
-   DIRE_GEMINI_API_KEY=your_api_key
-   DIRE_MISTRAL_API_KEY=your_api_key
-   DIRE_DEEPSEEK_API_KEY=your_api_key
-   ```
+   Add your API key(s) in your `.env` file.
 
 4. **Run Translation**
    ```bash
@@ -63,13 +56,13 @@ npm install -g dire
 
 ## Supported Providers
 
-| Provider                             |
-| ------------------------------------ |
-| [Claude](https://www.anthropic.com/) |
-| [OpenAI](https://openai.com/)        |
-| [Gemini](https://gemini.google.com/) |
-| [Mistral](https://mistral.ai/)       |
-| [DeepSeek](https://deepseek.com/)    |
+| Provider                             | Environment Variable    |
+| ------------------------------------ | ----------------------- |
+| [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
+| [OpenAI](https://openai.com/)        | `DIRE_OPENAI_API_KEY`   |
+| [Gemini](https://gemini.google.com/) | `DIRE_GEMINI_API_KEY`   |
+| [Mistral](https://mistral.ai/)       | `DIRE_MISTRAL_API_KEY`  |
+| [DeepSeek](https://deepseek.com/)    | `DIRE_DEEPSEEK_API_KEY` |
 
 ## Requirements
 
