@@ -1,0 +1,24 @@
+{
+  "name": "dire",
+  "license": "UNLICENSED",
+  "version": "0.1.0",
+  "description": "Go based CLI to automatically translate your i18n JSON files to any language",
+  "keywords": [
+    "i18n",
+    "translation",
+    "ai",
+    "localization",
+    "cli",
+    "go"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "dire": "./bin/dire.js"
+  },
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  }
+}
