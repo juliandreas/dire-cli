@@ -6,7 +6,7 @@
 
 <p align="center">
     <a href="https://github.com/juliandreas/dire-cli/releases"><img src="https://img.shields.io/github/release/juliandreas/dire-cli" alt="Latest Release"></a>
-    <a href="https://github.com/juliandreas/dire-cli/blob/main/LICENSE"><img src="https://img.shields.io/github/license/juliandreas/dire-cli" alt="License"></a>
+    <a href="https://github.com/juliandreas/dire-cli/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-freeware-black" alt="License"></a>
 </p>
 
 <p align="center">
