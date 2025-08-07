@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 // Determine binary name based on platform
 const binaryName = process.platform === "win32" ? "dire.exe" : "dire";
-const binaryPath = path.join(__dirname, "..", "bin", binaryName);
+const binaryPath = path.join(__dirname, binaryName);
 
 // Check if binary exists
 if (!fs.existsSync(binaryPath)) {
