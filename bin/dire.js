@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Determine binary name based on platform
-const binaryName = process.platform === "win32" ? "dire.exe" : "dire";
+const binaryName = process.platform === "win32" ? "dire-cli.exe" : "dire-cli";
 const binaryPath = path.join(__dirname, binaryName);
 
 // Check if binary exists

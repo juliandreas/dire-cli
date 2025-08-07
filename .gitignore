@@ -1,3 +1,4 @@
 *.exe
 *.zip
 /node_modules
+/package

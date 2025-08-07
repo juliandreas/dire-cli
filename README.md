@@ -59,7 +59,7 @@ npm install -g dire
 
 3. **Set Up API Keys**
 
-   Add your API key(s) in your `.env` file.
+   See [Supported Providers](#supported-providers) section below for setup details.
 
 4. **Run Translation**
    ```bash
@@ -69,6 +69,8 @@ npm install -g dire
 
 ## Supported Providers
 
+Set your API key in a `.env` file in your project root:
+
 | Provider                             | Environment Variable    |
 | ------------------------------------ | ----------------------- |
 | [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
@@ -76,6 +78,12 @@ npm install -g dire
 | [Gemini](https://gemini.google.com/) | `DIRE_GEMINI_API_KEY`   |
 | [Mistral](https://mistral.ai/)       | `DIRE_MISTRAL_API_KEY`  |
 | [DeepSeek](https://deepseek.com/)    | `DIRE_DEEPSEEK_API_KEY` |
+
+Example `.env` file:
+
+```bash
+DIRE_CLAUDE_API_KEY=sk-ant-api03-your-key-here
+```
 
 ## Requirements
 
