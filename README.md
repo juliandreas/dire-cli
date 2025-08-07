@@ -1,7 +1,12 @@
 # Dire
 
 <p align="center">
-<img src="./assets/dire.png" alt="Dire Logo">
+<img src="https://raw.githubusercontent.com/juliandreas/dire-cli/refs/heads/main/assets/dire.png" alt="Dire Logo">
+</p>
+
+<p align="center">
+    <a href="https://github.com/juliandreas/dire-cli/releases"><img src="https://img.shields.io/github/release/juliandreas/dire-cli" alt="Latest Release"></a>
+    <a href="https://github.com/juliandreas/dire-cli/blob/main/LICENSE"><img src="https://img.shields.io/github/license/juliandreas/dire-cli" alt="License"></a>
 </p>
 
 <p align="center">
@@ -10,6 +15,10 @@ Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that au
 
 <p align="center">
 BYOK (Bring Your Own Key) - Use your own AI provider API keys for maximum control and cost transparency
+</p>
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/juliandreas/dire-cli/refs/heads/main/assets/demo.gif" alt="Dire Demo" width="800">
 </p>
 
 ## Features

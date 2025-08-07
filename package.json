@@ -1,7 +1,7 @@
 {
   "name": "dire",
   "license": "UNLICENSED",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Go-based CLI that automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations",
   "keywords": [
     "i18n",
@@ -11,6 +11,14 @@
     "cli",
     "go"
   ],
+  "homepage": "https://github.com/juliandreas/dire-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliandreas/dire-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juliandreas/dire-cli/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=20"
