@@ -113,8 +113,15 @@ async function downloadFile(url, dest) {
 }
 
 async function extractZip(zipPath, extractDir) {
-  // Use tar on all platforms - it handles zip files and is faster than unzip
-  await execAsync(`tar -xf "${zipPath}" -C "${extractDir}"`);
+  if (process.platform === "win32") {
+    // Windows: Use built-in PowerShell
+    await execAsync(
+      `powershell -command "Expand-Archive -Path '${zipPath}' -DestinationPath '${extractDir}' -Force"`
+    );
+  } else {
+    // Unix: Use unzip for better compatibility
+    await execAsync(`unzip -o "${zipPath}" -d "${extractDir}"`);
+  }
 }
 
 install();
