@@ -1,12 +1,26 @@
-<h1 align="center">Dire</h1>
-
-<p align="center">
-Go based CLI to automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations
-</p>
+# Dire
 
 <p align="center">
 <img src="./assets/dire.png" alt="Dire Logo">
 </p>
+
+<p align="center">
+Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations
+</p>
+
+<p align="center">
+BYOK (Bring Your Own Key) - Use your own AI provider API keys for maximum control and cost transparency
+</p>
+
+## Features
+
+- **High-performance Go engine:** native binary for maximum speed
+- **Multi-provider AI support:** Claude, OpenAI, Gemini, Mistral, and DeepSeek
+- **Style customization:** configure tone, formality, and domain-specific terminology
+- **Intelligent translation sourcing:** automatic reuse through glossary definitions and existing translations in your files
+- **Translation rephrasing:** generate alternative phrasings for existing translations to improve quality
+- **Optimized translation engine:** smart batching, bi-directional translation pairs, and concurrent processing for maximum efficiency and quality
+- **Nested object support:** handles complex JSON structures and deeply nested translations
 
 ## Installation
 
@@ -43,16 +57,6 @@ npm install -g dire
    dire
    ```
    That's it! dire will automatically detect missing translations and use AI to fill them in.
-
-## Features
-
-- **High-performance Go engine:** native binary for maximum speed
-- **Multi-provider AI support:** Claude, OpenAI, Gemini, Mistral, and DeepSeek
-- **Smart translation reuse:** automatically reuses existing translations
-- **Nested JSON support:** handles complex translation file structures
-- **Intelligent batching:** optimized for large translation jobs
-- **Style customization:** configure tone, formality, and domain-specific terminology
-- **Automatic retries:** handles API failures gracefully
 
 ## Supported Providers
 

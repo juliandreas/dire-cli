@@ -2,68 +2,21 @@
 
 ## Command Reference Table
 
-| Command                    | Description                                         | Use Case                                   |
-| -------------------------- | --------------------------------------------------- | ------------------------------------------ |
-| `dire`                     | Translate all missing keys in your i18n files       | Main command for comprehensive translation |
-| `dire init`                | Create a configuration file (`.dire.yaml`)          | Initial project setup                      |
-| `dire --keys <key>`        | Translate specific key(s)                           | Focus on specific translation keys         |
-| `dire --sourced`           | Apply only glossary and memory translations (no AI) | Quick updates without API costs            |
-| `dire --context <context>` | Add context for better AI translations              | Improve translation accuracy               |
-| `dire --stub`              | Create placeholder translations (empty strings)     | Set up translation file structure          |
-| `dire --no-trim`           | Preserve whitespace in translations                 | Maintain exact formatting                  |
-| `dire --debug`             | Enable debug output                                 | Troubleshooting                            |
-| `dire --help`              | Show help information                               | Get command reference                      |
-| `dire --version`           | Show current version                                | Check installed version                    |
-
-## Detailed Usage Examples
-
-### Basic Translation
-
-```bash
-# Translate all missing keys
-dire
-
-# Initialize project configuration
-dire init
-```
-
-### Selective Translation
-
-```bash
-# Translate specific keys
-dire --keys auth.login
-dire --keys user.profile.name
-dire --keys navigation.menu
-
-# Translate multiple keys
-dire --keys "auth.login,auth.register,auth.logout"
-dire --keys "user.profile.name,user.profile.email,user.profile.phone"
-```
-
-### Translation Modes
-
-```bash
-# Use only existing glossary and memory (no AI)
-dire --sourced
-
-# Create empty placeholders
-dire --stub
-
-# Add context for better AI translations
-dire --context "Dashboard UI"
-dire --context "E-commerce checkout flow"
-dire --context "Mobile app navigation"
-```
-
-### Formatting Options
-
-```bash
-# Preserve whitespace
-dire --no-trim
-
-# Enable debug mode
-dire --debug
-```
+| Command                                          | Description                                         | Example                                            |
+| ------------------------------------------------ | --------------------------------------------------- | -------------------------------------------------- |
+| `dire`                                           | Translate all missing keys in your i18n files       | `dire`                                             |
+| `dire init`                                      | Create a configuration file (`.dire.yaml`)          | `dire init`                                        |
+| `dire init --force`                              | Overwrite existing configuration file               | `dire init --force`                                |
+| `dire --keys <key>`                              | Translate specific key(s)                           | `dire --keys "auth.login,auth.register"`           |
+| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations | `dire --rephrase --keys auth.login --locale en-US` |
+| `dire --sourced`                                 | Apply only glossary and memory translations (no AI) | `dire --sourced`                                   |
+| `dire --context <context>`                       | Add context for better AI translations              | `dire --context "E-commerce checkout"`             |
+| `dire --stub`                                    | Create placeholder translations (empty strings)     | `dire --stub`                                      |
+| `dire --include-stubs`                           | Include empty strings as missing translations       | `dire --include-stubs`                             |
+| `dire --no-trim`                                 | Preserve whitespace in translations                 | `dire --no-trim`                                   |
+| `dire --debug`                                   | Enable debug output                                 | `dire --debug`                                     |
+| `dire --help`                                    | Show help information                               | `dire --help`                                      |
+| `dire --version`                                 | Show current version                                | `dire --version`                                   |
 
 ## What Each Command Does
 
@@ -79,6 +32,7 @@ dire --debug
 
 - Creates a `.dire.yaml` configuration file
 - Sets up default and example settings for your project
+- Use `--force` flag to overwrite existing configuration
 
 ### `dire --keys <key>`
 
@@ -89,7 +43,7 @@ dire --debug
 ### `dire --sourced`
 
 - Uses only your existing glossary entries
-- Applies memory translations from previous runs
+- Reuses existing translations found in your files
 - Skips AI-powered translation generation
 - No API key required
 
@@ -106,6 +60,19 @@ dire --debug
 - Skips AI translation generation
 - Useful for setting up translation file structure
 - No API key required
+
+### `dire --rephrase --keys <key> --locale <locale>`
+
+- Generates rephrase options for existing translations
+- Requires both a specific key and target locale
+- Helps improve translation quality and alternatives
+- Only works with single keys, not multiple keys
+
+### `dire --include-stubs`
+
+- Treats empty string translations as missing translations
+- Processes placeholder values that need actual translations
+- Useful when working with incomplete translation files
 
 ### `dire --no-trim`
 
