@@ -11,7 +11,7 @@
     "cli",
     "go"
   ],
-  "homepage": "https://github.com/juliandreas/dire-cli",
+  "homepage": "https://direlang.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/juliandreas/dire-cli.git"
