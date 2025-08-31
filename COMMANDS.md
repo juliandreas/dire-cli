@@ -13,6 +13,8 @@
 | `dire --context <context>`                       | Add context for better AI translations              | `dire --context "E-commerce checkout"`             |
 | `dire --stub`                                    | Create placeholder translations (empty strings)     | `dire --stub`                                      |
 | `dire --include-stubs`                           | Include empty strings as missing translations       | `dire --include-stubs`                             |
+| `dire --check`                                   | Lint translation completeness (CI/CD mode)          | `dire --check`                                     |
+| `dire --check --format json`                     | Output lint results in JSON format                  | `dire --check --format json`                       |
 | `dire --no-trim`                                 | Preserve whitespace in translations                 | `dire --no-trim`                                   |
 | `dire --debug`                                   | Enable debug output                                 | `dire --debug`                                     |
 | `dire --help`                                    | Show help information                               | `dire --help`                                      |
@@ -73,6 +75,21 @@
 - Treats empty string translations as missing translations
 - Processes placeholder values that need actual translations
 - Useful when working with incomplete translation files
+
+### `dire --check`
+
+- Lints translation files for completeness issues
+- Exits with code 0 if complete, 1 if missing translations found
+- Perfect for CI/CD pipelines to prevent incomplete translations
+- Use `--format json` for machine-readable output
+- Respects `--include-stubs` (treats empty strings as missing)
+- Supports `--keys` flag to lint specific translation keys only
+
+**Exit Codes:**
+
+- `0` - All translations complete
+- `1` - Missing translations detected
+- `2` - Configuration or system errors
 
 ### `dire --no-trim`
 
