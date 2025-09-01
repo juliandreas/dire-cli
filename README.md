@@ -62,6 +62,8 @@ npm install -g dire
 
    See [Supported Providers](#supported-providers) section below for setup details.
 
+   Note: `dire` automatically loads environment variables from a `.env` file in your current directory. Ensure your `.env` is present when running `dire`.
+
 4. **Run Translation**
 
    ```bash
@@ -106,4 +108,4 @@ DIRE_CLAUDE_API_KEY=sk-ant-api03-your-key-here
 
 ## License
 
-All rights reserved. This software is provided for use only and may not be copied, modified, or redistributed without explicit permission.
+Freeware License - Free for personal and commercial use. See [LICENSE](LICENSE) for full terms.
