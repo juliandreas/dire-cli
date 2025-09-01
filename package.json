@@ -1,6 +1,6 @@
 {
   "name": "dire",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN LICENSE",
   "version": "0.2.6",
   "description": "Go-based CLI that automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations",
   "keywords": [

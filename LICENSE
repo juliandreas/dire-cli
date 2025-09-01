@@ -2,6 +2,14 @@ Freeware License
 
 Copyright (c) 2025 juliandreas
 
-This software is provided free of charge for personal and commercial use. However, users may not copy, modify, distribute, sublicense, sell, or create derivative works from this software without explicit written permission from the copyright holder.
+USAGE RIGHTS:
+This software is provided free of charge for personal and commercial use, including:
+
+- Installing the software via npm or direct download
+- Running the software as a command-line tool
+- Using the software's functionality in personal and commercial projects
+
+RESTRICTIONS:
+Users may not copy, modify, distribute, sublicense, and/or sell copies of the Software, and may not permit persons to whom the Software is furnished to do so.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
