@@ -57,7 +57,12 @@ async function install() {
     // Make binary executable on Unix
     if (process.platform !== "win32") {
       const binaryPath = path.join(binDir, "dire");
-      await chmod(binaryPath, 0o755);
+      try {
+        await chmod(binaryPath, 0o755);
+      } catch (chmodError) {
+        console.warn("Failed to make binary executable:", chmodError.message);
+        console.warn("You may need to run: chmod +x", binaryPath);
+      }
     }
 
     console.log("Ready to use!");
@@ -65,11 +70,12 @@ async function install() {
     // Force exit to prevent hanging
     process.exit(0);
   } catch (error) {
-    console.error("Failed to download dire binary:", error.message);
-    console.error(
+    console.warn("Failed to download dire binary:", error.message);
+    console.warn(
       "You can manually download from: https://github.com/juliandreas/dire-cli/releases"
     );
-    process.exit(1);
+    console.warn("Package installed with warnings - binary setup incomplete");
+    process.exit(0);
   }
 }
 
