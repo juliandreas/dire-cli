@@ -53,7 +53,7 @@ npm install -g dire
 2. **Initialize Configuration**
 
    ```bash
-   dire --init
+   dire init
    ```
 
    This creates a `.dire.yaml` file in your project root. Edit it to match your project structure.
@@ -108,4 +108,4 @@ DIRE_CLAUDE_API_KEY=sk-ant-api03-your-key-here
 
 ## License
 
-Freeware License - Free for personal and commercial use. See [LICENSE](LICENSE) for full terms.
+All rights reserved. This software is provided for use only and may not be copied, modified, or redistributed without explicit permission.
