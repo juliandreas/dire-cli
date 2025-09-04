@@ -62,7 +62,7 @@ npm install -g dire
 
    See [Supported Providers](#supported-providers) section below for setup details.
 
-   Note: `dire` automatically loads environment variables from a `.env` file in your current directory. Ensure your `.env` is present when running `dire`.
+   Note: Dire automatically loads environment variables from any `.env*` files in your current directory (e.g., `.env`, `.env.local`, `.env.production`). Files are loaded with proper precedence where `.env.local` overrides `.env`.
 
 4. **Run Translation**
 
@@ -85,7 +85,7 @@ npm install -g dire
 
 ## Supported Providers
 
-Set your API key in a `.env` file in your project root:
+Set your API key in any `.env*` file in your project root:
 
 | Provider                             | Environment Variable    |
 | ------------------------------------ | ----------------------- |
