@@ -56,7 +56,7 @@ async function install() {
 
     // Make binary executable on Unix
     if (process.platform !== "win32") {
-      const binaryPath = path.join(binDir, "dire");
+      const binaryPath = path.join(binDir, "dire-cli");
       try {
         await chmod(binaryPath, 0o755);
       } catch (chmodError) {
