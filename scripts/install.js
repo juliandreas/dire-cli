@@ -40,7 +40,7 @@ async function install() {
     const version = packageJson.version;
     const downloadUrl = `https://github.com/juliandreas/dire-cli/releases/download/v${version}/${zipName}`;
 
-    console.log(`Downloading dire for ${platformKey}...`);
+    console.log(`Downloading Dire for ${platformKey}...`);
 
     // Create bin directory
     const binDir = path.join(__dirname, "..", "bin");
@@ -50,7 +50,7 @@ async function install() {
     const zipPath = path.join(binDir, zipName);
     await downloadFile(downloadUrl, zipPath);
 
-    console.log("Setting up dire...");
+    console.log("Setting up Dire...");
     await extractZip(zipPath, binDir);
     await unlink(zipPath); // Clean up zip file
 

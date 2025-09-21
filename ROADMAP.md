@@ -6,16 +6,10 @@ This document outlines the planned features and improvements for Dire. Items are
 
 ### Additional Providers
 
-**DeepL Integration**
-
-- Native DeepL API support for professional translation quality
-- Known for superior translation accuracy, especially for European languages
-- Support for DeepL's formality controls and glossary features
-
 **Other Provider Considerations**
 
 - Azure Translator
-- Google Translate API (distinct from Gemini)
+- Google Translate
 - Amazon Translate
 
 ### Other File Format Support
@@ -57,12 +51,6 @@ This document outlines the planned features and improvements for Dire. Items are
 
 ### Integration Features
 
-**CI/CD Enhancements**
-
-- GitHub Actions integration examples
-- Pre-commit hooks for translation validation
-- Automated translation status checks
-
 **IDE Integration**
 
 - VS Code extension for inline translation management
@@ -70,10 +58,6 @@ This document outlines the planned features and improvements for Dire. Items are
 - Direct integration with development workflow
 
 ## Timeline
-
-### Short Term
-
-- DeepL provider integration
 
 ### Medium Term (3-6 months)
 
@@ -83,7 +67,6 @@ This document outlines the planned features and improvements for Dire. Items are
 ### Long Term (6+ months)
 
 - Other file format support
-- Advanced workflow features
 - IDE integrations
 
 ## Feedback

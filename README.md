@@ -72,16 +72,17 @@ npm install -g dire
 
    That's it! dire will automatically detect missing translations and use AI to fill them in.
 
-5. **CI/CD Integration (Optional)**
-   ```bash
-   # Lint translations in your build pipeline
-   dire --check
-   ```
-   Exits with code 1 when translations are missing (blocking deployments). Use JSON output for machine parsing:
-   ```bash
-   dire --check --format json
-   ```
-   Note: exit code 2 indicates configuration or system errors.
+## Common Commands
+
+| Command                                          | Description                                                                        |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `dire --keys <key>`                              | Translate specific key(s): `dire --keys "auth.login,auth.register"`                |
+| `dire --rephrase --keys <key> --locale <locale>` | Generate alternative phrasings: `dire --rephrase --keys auth.login --locale en-US` |
+| `dire --context <context>`                       | Add context for better translations: `dire --context "E-commerce checkout"`        |
+| `dire --stub`                                    | Create placeholder translations (empty strings)                                    |
+| `dire --check`                                   | Lint translation completeness for CI/CD                                            |
+
+See [COMMANDS.md](COMMANDS.md) for the complete command reference.
 
 ## Supported Providers
 
@@ -89,6 +90,7 @@ Set your API key in any `.env*` file in your project root:
 
 | Provider                             | Environment Variable    |
 | ------------------------------------ | ----------------------- |
+| [DeepL](https://www.deepl.com/)      | `DIRE_DEEPL_API_KEY`    |
 | [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
 | [OpenAI](https://openai.com/)        | `DIRE_OPENAI_API_KEY`   |
 | [Gemini](https://gemini.google.com/) | `DIRE_GEMINI_API_KEY`   |
@@ -104,7 +106,7 @@ DIRE_CLAUDE_API_KEY=sk-ant-api03-your-key-here
 ## Requirements
 
 - Node.js 20 or higher
-- API key for at least one supported AI provider
+- API key for at least one supported AI provider (if using the AI features)
 
 ## License
 

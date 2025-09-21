@@ -17,8 +17,9 @@ Dire currently supports JSON files with nested object structures. Each locale sh
 
 Dire supports:
 
-- **Claude** (Anthropic) - Set `DIRE_CLAUDE_API_KEY`
-- **OpenAI** (GPT models) - Set `DIRE_OPENAI_API_KEY`
+- **DeepL** - Set `DIRE_DEEPL_API_KEY`
+- **OpenAI** - Set `DIRE_OPENAI_API_KEY`
+- **Claude** - Set `DIRE_CLAUDE_API_KEY`
 - **Google Gemini** - Set `DIRE_GEMINI_API_KEY`
 - **Mistral** - Set `DIRE_MISTRAL_API_KEY`
 - **DeepSeek** - Set `DIRE_DEEPSEEK_API_KEY`

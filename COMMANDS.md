@@ -20,6 +20,14 @@
 | `dire --help`                                    | Show help information                               | `dire --help`                                      |
 | `dire --version`                                 | Show current version                                | `dire --version`                                   |
 
+## Configuration Override Flags
+
+These flags override settings from your `.dire.yaml` configuration file:
+
+| Flag | Description | Example |
+|------|-------------|---------|
+| `--directory <path>` | Override files.directory from config file | `dire --directory ./i18n` |
+
 ## What Each Command Does
 
 ### `dire` (Main Command)
@@ -55,6 +63,7 @@
 - Improves translation accuracy
 - Ensures domain-specific terminology
 - Maintains consistent tone and style
+- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL)
 
 ### `dire --stub`
 
@@ -69,6 +78,7 @@
 - Requires both a specific key and target locale
 - Helps improve translation quality and alternatives
 - Only works with single keys, not multiple keys
+- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL)
 
 ### `dire --include-stubs`
 
