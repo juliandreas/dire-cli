@@ -13,7 +13,7 @@
 
 Dire currently supports JSON files with nested object structures. Each locale should be a separate JSON file (e.g., `en.json`, `fr.json`, `de.json`).
 
-### Which AI providers are supported?
+### Which providers are supported?
 
 Dire supports:
 
@@ -51,16 +51,16 @@ files:
 
 ### When should I use `--sourced` vs regular translation?
 
-- **`--sourced`**: Apply only glossary and translation memory without AI costs. Good for quick updates using existing translations.
-- **Regular mode**: Use AI to generate new translations for missing keys. Costs API usage but handles new content.
+- **`--sourced`**: Apply only glossary and translation memory without any API costs. Good for quick updates using existing translations.
+- **Regular mode**: Use the configured provider to generate new translations for missing keys. Costs API usage but handles new content.
 
 ### What does `--stub` mode do?
 
-`--stub` creates empty string placeholders for all missing translation keys without using AI. This is useful when you want to:
+`--stub` creates empty string placeholders for all missing translation keys without using any API. This is useful when you want to:
 
 - Set up translation file structure with all keys present
 - Mark certain keys as "not ready for translation" initially
-- Create a complete file structure before manual or AI translation
+- Create a complete file structure before manual or provider translation
 
 **Important**: Keys with empty string values are normally ignored during translation. To translate these stubbed keys later, use `--include-stubs` with your regular translation command:
 
@@ -90,9 +90,9 @@ glossary:
 **Why use a glossary?**
 
 - **Brand consistency**: Ensure product names, features, and technical terms are translated identically
-- **Override AI**: Glossary entries take priority over AI translations
+- **Override provider**: Glossary entries take priority over provider translations
 - **Domain expertise**: Use your team's knowledge of specialized terminology
-- **Quality control**: Prevent AI from making incorrect assumptions about context-specific terms
+- **Quality control**: Prevent the provider from making incorrect assumptions about context-specific terms
 
 ### Does Dire remember previous translations?
 
@@ -102,7 +102,7 @@ Yes! Dire has **translation memory** - it remembers translations by looking at y
 
 - **Scans existing translations**: Dire looks through all your current translation files
 - **Finds exact matches**: If the same text exists elsewhere with a translation, it reuses that
-- **No API costs**: Reused translations don't require new AI calls
+- **No API costs**: Reused translations don't require new provider calls
 - **Uses your own data**: All memory comes from your existing translation files
 
 **Benefits:**
@@ -112,7 +112,7 @@ Yes! Dire has **translation memory** - it remembers translations by looking at y
 - **Cost efficiency**: Reduce API usage by reusing previous work
 - **Quality**: Build up a library of vetted translations over time
 
-**Example**: If you translate "Save changes" to "Enregistrer les modifications" in French once, Dire will automatically use that same translation everywhere "Save changes" appears, without calling the AI again.
+**Example**: If you translate "Save changes" to "Enregistrer les modifications" in French once, Dire will automatically use that same translation everywhere "Save changes" appears, without calling the provider again.
 
 ### Can I add context to improve AI translations?
 
@@ -199,12 +199,12 @@ Yes, API responses are capped at 1MB to prevent memory issues. For extremely lar
 
 1. **Setup**: Run `dire init` and configure your `.dire.yaml`
 2. **Glossary**: Add key terms to your glossary for consistency
-3. **Translate**: Run `dire` to translate missing keys (automatically applies glossary and memory, then uses AI for new content)
+3. **Translate**: Run `dire` to translate missing keys (automatically applies glossary and memory, then uses the configured provider for new content)
 4. **Refinement**: Use `dire --rephrase` to improve specific translations
 
 **Alternative approaches:**
 
-- Use `dire --sourced` for updates when you only want glossary/memory translations (no AI costs)
+- Use `dire --sourced` for updates when you only want glossary/memory translations (no provider costs)
 - Use `dire --keys` to focus on specific translation keys
 
 ### Any tips for better translations?

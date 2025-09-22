@@ -2,7 +2,7 @@
 
 ## Claude API Performance with Large Batches
 
-**Issue**: When using Claude as the AI provider, processing large batches of translations can take significantly longer than expected.
+**Issue**: When using Claude as the provider, processing large batches of translations can take significantly longer than expected.
 
 **Details**:
 

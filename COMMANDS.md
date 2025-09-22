@@ -2,30 +2,30 @@
 
 ## Command Reference Table
 
-| Command                                          | Description                                         | Example                                            |
-| ------------------------------------------------ | --------------------------------------------------- | -------------------------------------------------- |
-| `dire`                                           | Translate all missing keys in your i18n files       | `dire`                                             |
-| `dire init`                                      | Create a configuration file (`.dire.yaml`)          | `dire init`                                        |
-| `dire init --force`                              | Overwrite existing configuration file               | `dire init --force`                                |
-| `dire --keys <key>`                              | Translate specific key(s)                           | `dire --keys "auth.login,auth.register"`           |
-| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations | `dire --rephrase --keys auth.login --locale en-US` |
-| `dire --sourced`                                 | Apply only glossary and memory translations (no AI) | `dire --sourced`                                   |
-| `dire --context <context>`                       | Add context for better AI translations              | `dire --context "E-commerce checkout"`             |
-| `dire --stub`                                    | Create placeholder translations (empty strings)     | `dire --stub`                                      |
-| `dire --include-stubs`                           | Include empty strings as missing translations       | `dire --include-stubs`                             |
-| `dire --check`                                   | Lint translation completeness (CI/CD mode)          | `dire --check`                                     |
-| `dire --check --format json`                     | Output lint results in JSON format                  | `dire --check --format json`                       |
-| `dire --no-trim`                                 | Preserve whitespace in translations                 | `dire --no-trim`                                   |
-| `dire --debug`                                   | Enable debug output                                 | `dire --debug`                                     |
-| `dire --help`                                    | Show help information                               | `dire --help`                                      |
-| `dire --version`                                 | Show current version                                | `dire --version`                                   |
+| Command                                          | Description                                               | Example                                            |
+| ------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------- |
+| `dire`                                           | Translate all missing keys in your i18n files             | `dire`                                             |
+| `dire init`                                      | Create a configuration file (`.dire.yaml`)                | `dire init`                                        |
+| `dire init --force`                              | Overwrite existing configuration file                     | `dire init --force`                                |
+| `dire --keys <key>`                              | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"`           |
+| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations       | `dire --rephrase --keys auth.login --locale en-US` |
+| `dire --sourced`                                 | Apply only glossary and memory translations (no provider) | `dire --sourced`                                   |
+| `dire --context <context>`                       | Add context for better AI translations                    | `dire --context "E-commerce checkout"`             |
+| `dire --stub`                                    | Create placeholder translations (empty strings)           | `dire --stub`                                      |
+| `dire --include-stubs`                           | Include empty strings as missing translations             | `dire --include-stubs`                             |
+| `dire --check`                                   | Lint translation completeness (CI/CD mode)                | `dire --check`                                     |
+| `dire --check --format json`                     | Output lint results in JSON format                        | `dire --check --format json`                       |
+| `dire --no-trim`                                 | Preserve whitespace in translations                       | `dire --no-trim`                                   |
+| `dire --debug`                                   | Enable debug output                                       | `dire --debug`                                     |
+| `dire --help`                                    | Show help information                                     | `dire --help`                                      |
+| `dire --version`                                 | Show current version                                      | `dire --version`                                   |
 
 ## Configuration Override Flags
 
 These flags override settings from your `.dire.yaml` configuration file:
 
-| Flag | Description | Example |
-|------|-------------|---------|
+| Flag                 | Description                               | Example                   |
+| -------------------- | ----------------------------------------- | ------------------------- |
 | `--directory <path>` | Override files.directory from config file | `dire --directory ./i18n` |
 
 ## What Each Command Does
@@ -35,7 +35,7 @@ These flags override settings from your `.dire.yaml` configuration file:
 - Scans your configured i18n files
 - Identifies missing translations
 - Applies glossary and memory translations
-- Uses AI to generate translations for missing keys
+- Uses the configured provider to generate translations for missing keys
 - Saves results back to your files
 
 ### `dire init`
@@ -54,7 +54,7 @@ These flags override settings from your `.dire.yaml` configuration file:
 
 - Uses only your existing glossary entries
 - Reuses existing translations found in your files
-- Skips AI-powered translation generation
+- Skips provider-powered translation generation
 - No API key required
 
 ### `dire --context <context>`

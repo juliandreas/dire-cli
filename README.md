@@ -14,7 +14,7 @@ Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that au
 </p>
 
 <p align="center">
-BYOK (Bring Your Own Key) - Use your own AI provider API keys for maximum control and cost transparency
+BYOK (Bring Your Own Key) - Use your own provider API keys for maximum control and cost transparency
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@ BYOK (Bring Your Own Key) - Use your own AI provider API keys for maximum contro
 ## Features
 
 - **High-performance Go engine:** native binary for maximum speed
-- **Multi-provider AI support:** Claude, OpenAI, Gemini, Mistral, and DeepSeek
+- **Multi-provider support:** DeepL, Claude, OpenAI, Gemini, Mistral, and DeepSeek
 - **CI/CD integration:** lint translation completeness in build pipelines with `--check` flag
 - **Style customization:** configure tone, formality, and domain-specific terminology
 - **Intelligent translation sourcing:** automatic reuse through glossary definitions and existing translations in your files
@@ -70,8 +70,6 @@ npm install -g dire
    dire
    ```
 
-   That's it! dire will automatically detect missing translations and use AI to fill them in.
-
 ## Common Commands
 
 | Command                                          | Description                                                                        |
@@ -91,8 +89,8 @@ Set your API key in any `.env*` file in your project root:
 | Provider                             | Environment Variable    |
 | ------------------------------------ | ----------------------- |
 | [DeepL](https://www.deepl.com/)      | `DIRE_DEEPL_API_KEY`    |
-| [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
 | [OpenAI](https://openai.com/)        | `DIRE_OPENAI_API_KEY`   |
+| [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
 | [Gemini](https://gemini.google.com/) | `DIRE_GEMINI_API_KEY`   |
 | [Mistral](https://mistral.ai/)       | `DIRE_MISTRAL_API_KEY`  |
 | [DeepSeek](https://deepseek.com/)    | `DIRE_DEEPSEEK_API_KEY` |
@@ -106,7 +104,7 @@ DIRE_CLAUDE_API_KEY=sk-ant-api03-your-key-here
 ## Requirements
 
 - Node.js 20 or higher
-- API key for at least one supported AI provider (if using the AI features)
+- API key for at least one supported provider (if using the translation features)
 
 ## License
 
