@@ -1,32 +1,32 @@
-# Project context (helps AI understand your domain)
-project:
-  name: "My Project" # Change this to your project name
-  description: "Brief description of your project for better translations"
-  # domain: "web-app"  # Optional: e-commerce, healthcare, travel, etc.
+# Project context - helps AI understand your domain for better translations (optional)
+# project:
+#   name: "My Project" # Change this to your project name (optional)
+#   description: "Brief description of your project for better translations" # (optional)
+#   domain: "web-app"  # e-commerce, healthcare, travel, etc. (optional)
 
 # Files configuration
 files:
-  # Change this to your translation files directory
-  directory: "locales"
+  # Directory for translation files (relative to this config file unless absolute)
+  directory: "./locales"
   # Map file names to locale codes (BCP 47 format required)
   locales:
     "en.json": "en-US"
     # "fr.json": "fr-FR"
     # "es.json": "es-ES"
     # "de.json": "de-DE"
-  # indent: 2 # (optional, defaults to 2)
+  # indent: 2 # defaults to 2 spaces (optional)
 
 # Translation providers configuration
 providers:
-  # Which provider to use (e.g., "openai", "claude", "deepl")
-  # Remember to set the matching API key in your environment (e.g., DIRE_OPENAI_API_KEY, DIRE_CLAUDE_API_KEY, DIRE_DEEPL_API_KEY).
-  active: "openai"
-  # Define LLM providers you want to have available
-  configuration:
-    - name: "openai"
-      model: "gpt-4.1-nano"
-      maxTokens: 32000
-      temperature: 0.2
+  # Which provider to use (e.g., "deepl", "openai", "claude")
+  # Remember to set the matching API key in your environment (e.g., DIRE_DEEPL_API_KEY, DIRE_OPENAI_API_KEY).
+  active: "deepl"
+  # Define LLM providers you want to have available (translator providers like "deepl" do not need entries here)
+  # configuration:
+    # - name: "openai"
+    #   model: "gpt-4.1-nano"
+    #   maxTokens: 32000
+    #   temperature: 0.2
     # - name: "claude"
     #   model: "claude-3-5-haiku-latest"
     #   maxTokens: 8192
