@@ -38,9 +38,9 @@ This document outlines the planned features and improvements for Dire. Items are
   - `"i18n/**/*.en.json": "en-US"` - Match files with locale extensions
 - Maintain organization while enabling comprehensive translation across complex project structures
 
-**AI-Powered Translation Review**
+**Translation Review**
 
-- Spell check and grammar review of existing translations using AI
+- Spell check and grammar review of existing translations
 - Quality assessment and improvement suggestions
 - Detection of inconsistent terminology across files
 - Potential implementations:
@@ -62,7 +62,7 @@ This document outlines the planned features and improvements for Dire. Items are
 ### Medium Term (3-6 months)
 
 - Multiple files per locale with glob pattern support
-- AI-powered translation review and quality checking
+- Translation review and quality checking
 
 ### Long Term (6+ months)
 
@@ -71,7 +71,7 @@ This document outlines the planned features and improvements for Dire. Items are
 
 ## Feedback
 
-Have suggestions for the roadmap? We'd love to hear from you:
+Have suggestions for the roadmap? I'd love to hear from you:
 
 - Open an issue on GitHub
 - Start a discussion in the repository

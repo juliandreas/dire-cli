@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n files by using AI, glossary, and pre-determined translations
+Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n files using translation providers, glossary definitions, and translation memory
 </p>
 
 <p align="center">
@@ -23,48 +23,45 @@ BYOK (Bring Your Own Key) - Use your own provider API keys for maximum control a
 
 ## Features
 
-- **High-performance Go engine:** native binary for maximum speed
 - **Multi-provider support:** DeepL, Claude, OpenAI, Gemini, Mistral, and DeepSeek
+- **Intelligent translation reuse:** automatic sourcing from glossary definitions and translation memory
+- **Translation rephrasing:** generate alternative phrasings to improve quality
 - **CI/CD integration:** lint translation completeness in build pipelines with `--check` flag
-- **Style customization:** configure tone, formality, and domain-specific terminology
-- **Intelligent translation sourcing:** automatic reuse through glossary definitions and existing translations in your files
-- **Translation rephrasing:** generate alternative phrasings for existing translations to improve quality
-- **Optimized translation engine:** smart batching, bi-directional translation pairs, and concurrent processing for maximum efficiency and quality
+- **Glossary management:** ensure consistent terminology across all translations
+- **High-performance:** native Go binary with smart batching and concurrent processing
 - **Nested object support:** handles complex JSON structures and deeply nested translations
+- **Context-aware translations:** provide domain-specific context for better results
 
 ## Installation
 
 ```bash
-npm install -g dire
+# Option 1: Install as project dependency
+npm i dire
+
+# Option 2: Install globally
+npm i -g dire
+
+# Option 3: Run without installing
+npx dire
 ```
 
 ## Quick Start
 
-1. **Install the CLI**
-
-   ```bash
-   # Install globally (recommended for CLI usage)
-   npm install -g dire
-
-   # Or install as a project dependency
-   npm install dire
-   ```
-
-2. **Initialize Configuration**
+1. **Initialize Configuration**
 
    ```bash
    dire init
    ```
 
-   This creates a `.dire.yaml` file in your project root. Edit it to match your project structure.
+   This creates a `.dire.toml` file in your project root. Edit it to match your project structure. You can also reference the [config.template.toml](config.template.toml) for all available options.
 
-3. **Set Up API Keys**
+2. **Set Up API Keys**
 
    See [Supported Providers](#supported-providers) section below for setup details.
 
-   Note: Dire automatically loads environment variables from any `.env*` files in your current directory (e.g., `.env`, `.env.local`, `.env.production`). Files are loaded with proper precedence where `.env.local` overrides `.env`.
+   Note: Dire automatically loads environment variables from any `.env*` files in your current directory (e.g., `.env`, `.env.local`, `.env.production`).
 
-4. **Run Translation**
+3. **Run Translation**
 
    ```bash
    dire
@@ -72,13 +69,13 @@ npm install -g dire
 
 ## Common Commands
 
-| Command                                          | Description                                                                        |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| `dire --keys <key>`                              | Translate specific key(s): `dire --keys "auth.login,auth.register"`                |
-| `dire --rephrase --keys <key> --locale <locale>` | Generate alternative phrasings: `dire --rephrase --keys auth.login --locale en-US` |
-| `dire --context <context>`                       | Add context for better translations: `dire --context "E-commerce checkout"`        |
-| `dire --stub`                                    | Create placeholder translations (empty strings)                                    |
-| `dire --check`                                   | Lint translation completeness for CI/CD                                            |
+| Command             | Description                                                         |
+| ------------------- | ------------------------------------------------------------------- |
+| `dire`              | Translate all missing keys in your i18n files                       |
+| `dire --keys <key>` | Translate specific key(s): `dire --keys "auth.login,auth.register"` |
+| `dire --sourced`    | Apply only glossary and memory translations                         |
+| `dire --stub`       | Create placeholder translations (empty strings)                     |
+| `dire --check`      | Lint translation completeness for CI/CD                             |
 
 See [COMMANDS.md](COMMANDS.md) for the complete command reference.
 

@@ -4,10 +4,10 @@
 
 ### How do I get started with Dire?
 
-1. Run `dire init` to create a `.dire.yaml` configuration file
+1. Run `dire init` in your project directory to create a `.dire.toml` configuration file
 2. Edit the config to specify your project details and translation file locations
-3. Set up API keys as environment variables (e.g., `DIRE_CLAUDE_API_KEY`)
-4. Run `dire` from the directory containing your `.dire.yaml` file to start translating missing keys
+3. Set up API keys as env variables in your `.env` file (e.g., `DIRE_DEEPL_API_KEY`)
+4. Run `dire` from the directory containing your `.dire.toml` file to start translating missing keys
 
 ### What file formats does Dire support?
 
@@ -24,7 +24,7 @@ Dire supports:
 - **Mistral** - Set `DIRE_MISTRAL_API_KEY`
 - **DeepSeek** - Set `DIRE_DEEPSEEK_API_KEY`
 
-Configure providers in `.dire.yaml` and set your active provider.
+Configure providers in `.dire.toml` and set your active provider.
 
 ## Configuration
 
@@ -37,32 +37,33 @@ Dire requires full BCP-47 locale codes (language + region). Bare language codes 
 
 ### How do I configure multiple locales?
 
-In your `.dire.yaml` file, map filename patterns to locale codes in the `files.locales` section:
+In your `.dire.toml` file, map filename patterns to locale codes in the `[files.locales]` section:
 
-```yaml
-files:
-  locales:
-    "en.json": "en-US"
-    "fr.json": "fr-FR"
-    "de.json": "de-DE"
+```toml
+# Map file names/patterns to languages
+[files.locales]
+"en.json" = "en-US"
+"sv.json" = "sv-SE"
+"da.json" = "da-DK"
 ```
 
-## Usage Modes
+## Flags
 
-### When should I use `--sourced` vs regular translation?
+### What is the `--sourced` flag?
 
-- **`--sourced`**: Apply only glossary and translation memory without any API costs. Good for quick updates using existing translations.
-- **Regular mode**: Use the configured provider to generate new translations for missing keys. Costs API usage but handles new content.
+The `--sourced` flag applies translations only from your glossary and translation memory, without making any API calls to translation providers. This means zero API costs.
 
-### What does `--stub` mode do?
+During normal translation mode, Dire automatically checks glossary and translation memory first before calling the provider. However, use the `--sourced` flag when you want to apply **only** these local translations without any provider involvement - useful for quick updates using your existing translation resources.
 
-`--stub` creates empty string placeholders for all missing translation keys without using any API. This is useful when you want to:
+### What does the `--stub` flag do?
+
+The `--stub` flag creates empty string placeholders for all missing translation keys without using any API. This is useful when you want to:
 
 - Set up translation file structure with all keys present
 - Mark certain keys as "not ready for translation" initially
 - Create a complete file structure before manual or provider translation
 
-**Important**: Keys with empty string values are normally ignored during translation. To translate these stubbed keys later, use `--include-stubs` with your regular translation command:
+**Important**: Keys with empty string values are ignored during translation. To translate these stubbed keys later, use `--include-stubs` with your regular translation command:
 
 ```bash
 # First, create stubs for all missing keys
@@ -76,15 +77,19 @@ dire --include-stubs
 
 ### How does the glossary feature work?
 
-A **glossary** is your predefined dictionary of key terms and their exact translations across languages. It ensures that important terms are always translated consistently, regardless of context.
+A **glossary** is your predefined dictionary of key terms and their exact translations across languages. It ensures that important terms are always translated consistently, regardless of context. The glossary is **bi-directional** - it works when translating from any language to any other language in your configuration.
 
-Define these terms in your `.dire.yaml`:
+Define these terms in your `.dire.toml`:
 
-```yaml
-glossary:
-  - { en-US: "dashboard", fr-FR: "tableau de bord", de-DE: "Dashboard" }
-  - { en-US: "API", fr-FR: "API", de-DE: "API" }
-  - { en-US: "checkout", fr-FR: "validation", de-DE: "Kasse" }
+```toml
+# Glossary configuration
+[glossary]
+autoSort = true
+entries = [
+    { "en-US" = "dashboard", "fr-FR" = "tableau de bord", "de-DE" = "Dashboard" },
+    { "en-US" = "API", "fr-FR" = "API", "de-DE" = "API" },
+    { "en-US" = "checkout", "fr-FR" = "validation", "de-DE" = "Kasse" }
+]
 ```
 
 **Why use a glossary?**
@@ -124,26 +129,29 @@ dire --context "E-commerce checkout flow for online shopping"
 
 Context helps the AI understand the domain and generate more accurate translations.
 
-### What happens to whitespace and key ordering in translations?
+### How does Dire handle JSON formatting?
+
+**Key ordering:**
+
+- **Always alphabetical**: Dire automatically sorts all translation keys alphabetically for consistency
+- This is an opinionated design choice to ensure predictable file structure and easier diffs
 
 **Whitespace handling:**
 
 - **Default**: Dire trims leading/trailing whitespace from translations
 - **Preserve formatting**: Use `--no-trim` to maintain exact whitespace when needed
 
-**Key ordering:**
+**Indentation:**
 
-- **Always alphabetical**: Dire automatically sorts all translation keys alphabetically for consistency
-- This is an opinionated design choice to ensure predictable file structure and easier diffs
-- There is no flag to disable alphabetical sorting
+- **Default**: Uses 2 spaces for JSON indentation
+- **Custom indentation**: Use `--indent` flag to override (e.g., `--indent 4` for 4 spaces)
 
 ## Troubleshooting
 
 ### Why am I getting "configuration file not found" errors?
 
-1. Run `dire init` to create a `.dire.yaml` file
+1. Run `dire init` to create a `.dire.toml` file
 2. Make sure you're in the correct directory
-3. In development mode, ensure config is at `demo/.dire.yaml`
 
 ### My API key isn't working - what should I check?
 
@@ -154,7 +162,7 @@ Verify you're using the correct environment variable name:
 - `DIRE_GEMINI_API_KEY` for Gemini
 - And so on...
 
-Also ensure your active provider in `.dire.yaml` matches the API key you've set.
+Also ensure your active provider in `.dire.toml` matches the API key you've set.
 
 ### Can I use multiple flags together?
 
@@ -168,48 +176,13 @@ Some combinations **work fine**:
 - `--sourced` and `--include-stubs`
 - `--keys` with most other flags
 
-## Design Choices
-
-### Is Dire opinionated about file formatting?
-
-Yes! Dire makes several opinionated decisions to ensure consistency:
-
-**File Structure:**
-
-- **Alphabetical key sorting**: All translation keys are automatically sorted alphabetically
-- **Consistent formatting**: JSON output follows a standardized format
-- **Whitespace normalization**: Leading/trailing whitespace is trimmed by default (use `--no-trim` to override)
-
-**Why these choices?**
-
-- Ensures predictable file structure across teams
-- Makes Git diffs more meaningful and easier to review
-- Reduces merge conflicts caused by inconsistent formatting
-- Maintains consistency even when multiple developers work on translations
-
-## Limitations
-
-### Are there any response size limits?
-
-Yes, API responses are capped at 1MB to prevent memory issues. For extremely large translation jobs, consider breaking them into smaller batches.
-
 ## Best Practices
 
 ### What's the recommended translation workflow?
 
-1. **Setup**: Run `dire init` and configure your `.dire.yaml`
+1. **Setup**: Run `dire init` and configure your `.dire.toml`
 2. **Glossary**: Add key terms to your glossary for consistency
-3. **Translate**: Run `dire` to translate missing keys (automatically applies glossary and memory, then uses the configured provider for new content)
-4. **Refinement**: Use `dire --rephrase` to improve specific translations
-
-**Alternative approaches:**
-
-- Use `dire --sourced` for updates when you only want glossary/memory translations (no provider costs)
-- Use `dire --keys` to focus on specific translation keys
-
-### Any tips for better translations?
-
-- Use descriptive key names (e.g., `checkout.payment.creditCard` vs `cc`)
-- Add context with `--context` for domain-specific translations
-- Maintain a comprehensive glossary for consistent terminology
-- Review and refine translations using `--rephrase` mode
+3. **Gradual Translation**: Even though you can translate thousands of keys in seconds, we recommend translating gradually so you can review the results:
+   - Use `--keys` to target specific keys or objects (e.g., `--keys auth,user.profile`)
+   - Review translations before moving to the next batch
+4. **Full Translation**: Once comfortable, run `dire` without filters to translate all remaining keys

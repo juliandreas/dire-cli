@@ -19,6 +19,6 @@
 **Details**:
 
 - This limitation affects projects with split translation files (e.g., `auth.json`, `navigation.json`, `forms.json` for the same locale)
-- Only the translation file specified in the `.dire.yaml` file for each locale will be processed
+- Only the translation file specified in the `.dire.toml` file for each locale will be processed
 
 **Status**: Planned for future development to support multiple files per locale.

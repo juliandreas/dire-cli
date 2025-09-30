@@ -1,0 +1,69 @@
+# Project context - helps AI understand your domain for better translations (optional)
+# [project]
+# name = "My Project" # Change this to your project name (optional)
+# description = "Brief description of your project for better translations" # (optional)
+# domain = "web-app"  # e-commerce, healthcare, travel, etc. (optional)
+
+# Files configuration
+[files]
+# Directory for translation files (relative to this config file unless absolute)
+directory = "./locales"
+# indent = 2 # defaults to 2 spaces (optional)
+
+# Map file names to locale codes (BCP 47 format required)
+[files.locales]
+"en.json" = "en-US"
+# "fr.json" = "fr-FR"
+# "es.json" = "es-ES"
+# "de.json" = "de-DE"
+
+# Translation providers configuration
+[providers]
+# Which provider to use (e.g., "deepl", "openai", "claude")
+# Remember to set the matching API key in your environment (e.g., DIRE_DEEPL_API_KEY, DIRE_OPENAI_API_KEY).
+active = "deepl"
+
+# Define LLM providers you want to have available (translator providers like "deepl" do not need entries here)
+# [[providers.configuration]]
+# name = "openai"
+# model = "gpt-4.1-nano"
+# maxTokens = 32000
+# temperature = 0.2
+
+# [[providers.configuration]]
+# name = "claude"
+# model = "claude-3-5-haiku-latest"
+# maxTokens = 8192
+# temperature = 0.2
+
+# [[providers.configuration]]
+# name = "gemini"
+# model = "gemini-1.5-flash"
+# maxTokens = 32000
+# temperature = 0.2
+
+# [[providers.configuration]]
+# name = "mistral"
+# model = "mistral-small-latest"
+# maxTokens = 32000
+# temperature = 0.2
+
+# [[providers.configuration]]
+# name = "deepseek"
+# model = "deepseek-chat"
+# maxTokens = 8192
+# temperature = 0.2
+
+# Style guide configuration (optional)
+# [styleGuide]
+# formality = "automatic"  # automatic | formal | informal
+
+# Glossary for consistent translations (optional)
+# Define specific terms that should be translated consistently
+# [glossary]
+# autoSort = true  # Automatically sort glossary entries alphabetically (primary locale/order taken from the first entry's key order)
+# entries = [
+#   { "en-US" = "dashboard", "fr-FR" = "tableau de bord", "es-ES" = "panel de control" },
+#   { "en-US" = "user", "fr-FR" = "utilisateur", "es-ES" = "usuario" },
+#   { "en-US" = "API", "fr-FR" = "API", "es-ES" = "API" },
+# ]

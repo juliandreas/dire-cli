@@ -5,7 +5,7 @@
 | Command                                          | Description                                               | Example                                            |
 | ------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------- |
 | `dire`                                           | Translate all missing keys in your i18n files             | `dire`                                             |
-| `dire init`                                      | Create a configuration file (`.dire.yaml`)                | `dire init`                                        |
+| `dire init`                                      | Create a configuration file (`.dire.toml`)                | `dire init`                                        |
 | `dire init --force`                              | Overwrite existing configuration file                     | `dire init --force`                                |
 | `dire --keys <key>`                              | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"`           |
 | `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations       | `dire --rephrase --keys auth.login --locale en-US` |
@@ -22,11 +22,13 @@
 
 ## Configuration Override Flags
 
-These flags override settings from your `.dire.yaml` configuration file:
+These flags override settings from your `.dire.toml` configuration file:
 
-| Flag                 | Description                               | Example                   |
-| -------------------- | ----------------------------------------- | ------------------------- |
-| `--directory <path>` | Override files.directory from config file | `dire --directory ./i18n` |
+| Flag                                 | Description                    | Example                                      |
+| ------------------------------------ | ------------------------------ | -------------------------------------------- |
+| `--directory <path>`                 | Override files.directory       | `dire --directory ./i18n`                    |
+| `--locales <filename=language-code>` | Override files.locales mapping | `dire --locales en.json=en-US,fr.json=fr-FR` |
+| `--indent <number>`                  | Override files.indent          | `dire --indent 4`                            |
 
 ## What Each Command Does
 
@@ -40,7 +42,7 @@ These flags override settings from your `.dire.yaml` configuration file:
 
 ### `dire init`
 
-- Creates a `.dire.yaml` configuration file
+- Creates a `.dire.toml` configuration file
 - Sets up default and example settings for your project
 - Use `--force` flag to overwrite existing configuration
 
