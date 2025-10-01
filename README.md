@@ -5,7 +5,8 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/juliandreas/dire-cli/releases"><img src="https://img.shields.io/github/release/juliandreas/dire-cli" alt="Latest Release"></a>
+    <a href="https://github.com/juliandreas/dire-cli"><img src="https://img.shields.io/badge/language-Go-00ADD8?logo=go" alt="Go"></a>
+    <a href="https://www.npmjs.com/package/dire"><img src="https://img.shields.io/npm/v/dire" alt="npm version"></a>
     <a href="https://github.com/juliandreas/dire-cli/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-freeware-black" alt="License"></a>
 </p>
 
