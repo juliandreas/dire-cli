@@ -24,11 +24,19 @@
 
 These flags override settings from your `.dire.toml` configuration file:
 
-| Flag                                 | Description                    | Example                                      |
-| ------------------------------------ | ------------------------------ | -------------------------------------------- |
-| `--directory <path>`                 | Override files.directory       | `dire --directory ./i18n`                    |
-| `--locales <filename=language-code>` | Override files.locales mapping | `dire --locales en.json=en-US,fr.json=fr-FR` |
-| `--indent <number>`                  | Override files.indent          | `dire --indent 4`                            |
+| Flag                                 | Description                    | Example                                               |
+| ------------------------------------ | ------------------------------ | ----------------------------------------------------- |
+| `--directory <path>`                 | Override files.directory       | `dire --directory ./i18n`                             |
+| `--locales <filename=language-code>` | Override files.locales mapping | `dire --locales en.json=en-US,fr.json=fr-FR`          |
+| `--indent <number>`                  | Override files.indent          | `dire --indent 4`                                     |
+| `--formality <level>`                | Override styleGuide.formality  | `dire --formality formal`                             |
+| `--project-name <name>`              | Override project.name          | `dire --project-name "My App"`                        |
+| `--project-description <text>`       | Override project.description   | `dire --project-description "Online store for shoes"` |
+| `--project-domain <domain>`          | Override project.domain        | `dire --project-domain "e-commerce"`                  |
+| `--provider-active <name>`           | Override providers.active      | `dire --provider-active claude`                       |
+| `--provider-model <model>`           | Override active provider model | `dire --provider-model claude-3-5-sonnet`             |
+| `--provider-temperature <float>`     | Override provider temperature  | `dire --provider-temperature 0.3`                     |
+| `--provider-max-tokens <number>`     | Override provider max tokens   | `dire --provider-max-tokens 4096`                     |
 
 ## What Each Command Does
 
