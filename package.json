@@ -14,7 +14,7 @@
   "homepage": "https://direlang.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/juliandreas/dire-cli.git"
+    "url": "git+https://github.com/juliandreas/dire-cli.git"
   },
   "bugs": {
     "url": "https://github.com/juliandreas/dire-cli/issues"
@@ -24,7 +24,7 @@
     "node": ">=20"
   },
   "bin": {
-    "dire": "./bin/dire.js"
+    "dire": "bin/dire.js"
   },
   "scripts": {
     "postinstall": "node scripts/install.js"
