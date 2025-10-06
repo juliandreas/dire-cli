@@ -24,7 +24,7 @@ BYOK (Bring Your Own Key) - Use your own provider API keys for maximum control a
 
 ## Features
 
-- **Multi-provider support:** DeepL, Claude, OpenAI, Gemini, Mistral, and DeepSeek
+- **Multi-provider support:** DeepL, Google Translate, Claude, OpenAI, Gemini, Mistral, and DeepSeek
 - **Intelligent translation reuse:** automatic sourcing from glossary definitions and translation memory
 - **Translation rephrasing:** generate alternative phrasings to improve quality
 - **CI/CD integration:** lint translation completeness in build pipelines with `--check` flag
@@ -86,14 +86,15 @@ See [COMMANDS.md](COMMANDS.md) for the complete command reference.
 
 Set your API key in any `.env*` file in your project root:
 
-| Provider                             | Environment Variable    |
-| ------------------------------------ | ----------------------- |
-| [DeepL](https://www.deepl.com/)      | `DIRE_DEEPL_API_KEY`    |
-| [OpenAI](https://openai.com/)        | `DIRE_OPENAI_API_KEY`   |
-| [Claude](https://www.anthropic.com/) | `DIRE_CLAUDE_API_KEY`   |
-| [Gemini](https://gemini.google.com/) | `DIRE_GEMINI_API_KEY`   |
-| [Mistral](https://mistral.ai/)       | `DIRE_MISTRAL_API_KEY`  |
-| [DeepSeek](https://deepseek.com/)    | `DIRE_DEEPSEEK_API_KEY` |
+| Provider                                               | Environment Variable    |
+| ------------------------------------------------------ | ----------------------- |
+| [DeepL](https://www.deepl.com/)                        | `DIRE_DEEPL_API_KEY`    |
+| [Google Translate](https://cloud.google.com/translate) | `DIRE_GOOGLE_API_KEY`   |
+| [OpenAI](https://openai.com/)                          | `DIRE_OPENAI_API_KEY`   |
+| [Claude](https://www.anthropic.com/)                   | `DIRE_CLAUDE_API_KEY`   |
+| [Gemini](https://gemini.google.com/)                   | `DIRE_GEMINI_API_KEY`   |
+| [Mistral](https://mistral.ai/)                         | `DIRE_MISTRAL_API_KEY`  |
+| [DeepSeek](https://deepseek.com/)                      | `DIRE_DEEPSEEK_API_KEY` |
 
 Example `.env` file:
 

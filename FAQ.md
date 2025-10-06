@@ -18,6 +18,7 @@ Dire currently supports JSON files with nested object structures. Each locale sh
 Dire supports:
 
 - **DeepL** - Set `DIRE_DEEPL_API_KEY`
+- **Google Translate** - Set `DIRE_GOOGLE_API_KEY`
 - **OpenAI** - Set `DIRE_OPENAI_API_KEY`
 - **Claude** - Set `DIRE_CLAUDE_API_KEY`
 - **Google Gemini** - Set `DIRE_GEMINI_API_KEY`
@@ -157,6 +158,8 @@ Context helps the AI understand the domain and generate more accurate translatio
 
 Verify you're using the correct environment variable name:
 
+- `DIRE_DEEPL_API_KEY` for DeepL
+- `DIRE_GOOGLE_API_KEY` for Google Translate
 - `DIRE_CLAUDE_API_KEY` for Claude
 - `DIRE_OPENAI_API_KEY` for OpenAI
 - `DIRE_GEMINI_API_KEY` for Gemini

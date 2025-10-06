@@ -8,11 +8,12 @@
 | `dire init`                                      | Create a configuration file (`.dire.toml`)                | `dire init`                                        |
 | `dire init --force`                              | Overwrite existing configuration file                     | `dire init --force`                                |
 | `dire --keys <key>`                              | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"`           |
-| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations       | `dire --rephrase --keys auth.login --locale en-US` |
 | `dire --sourced`                                 | Apply only glossary and memory translations (no provider) | `dire --sourced`                                   |
-| `dire --context <context>`                       | Add context for better AI translations                    | `dire --context "E-commerce checkout"`             |
 | `dire --stub`                                    | Create placeholder translations (empty strings)           | `dire --stub`                                      |
+| `dire --prune`                                   | Remove orphaned keys from non-reference locales           | `dire --prune`                                     |
 | `dire --include-stubs`                           | Include empty strings as missing translations             | `dire --include-stubs`                             |
+| `dire --context <context>`                       | Add context for better AI translations                    | `dire --context "E-commerce checkout"`             |
+| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations       | `dire --rephrase --keys auth.login --locale en-US` |
 | `dire --check`                                   | Lint translation completeness (CI/CD mode)                | `dire --check`                                     |
 | `dire --check --format json`                     | Output lint results in JSON format                        | `dire --check --format json`                       |
 | `dire --no-trim`                                 | Preserve whitespace in translations                       | `dire --no-trim`                                   |
@@ -67,14 +68,6 @@ These flags override settings from your `.dire.toml` configuration file:
 - Skips provider-powered translation generation
 - No API key required
 
-### `dire --context <context>`
-
-- Provides additional context to the AI model
-- Improves translation accuracy
-- Ensures domain-specific terminology
-- Maintains consistent tone and style
-- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL)
-
 ### `dire --stub`
 
 - Creates empty string placeholders for all missing translations
@@ -82,19 +75,36 @@ These flags override settings from your `.dire.toml` configuration file:
 - Useful for setting up translation file structure
 - No API key required
 
-### `dire --rephrase --keys <key> --locale <locale>`
+### `dire --prune`
 
-- Generates rephrase options for existing translations
-- Requires both a specific key and target locale
-- Helps improve translation quality and alternatives
-- Only works with single keys, not multiple keys
-- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL)
+- Removes orphaned translation keys that don't exist in the reference locale
+- Identifies the reference locale (the one with the most keys)
+- Cleans up keys from other locales that are no longer in the reference
+- Helps maintain consistency across translation files
+
+- No API key required
 
 ### `dire --include-stubs`
 
 - Treats empty string translations as missing translations
 - Processes placeholder values that need actual translations
 - Useful when working with incomplete translation files
+
+### `dire --context <context>`
+
+- Provides additional context to the AI model
+- Improves translation accuracy
+- Ensures domain-specific terminology
+- Maintains consistent tone and style
+- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL, Google Translate, etc.)
+
+### `dire --rephrase --keys <key> --locale <locale>`
+
+- Generates rephrase options for existing translations
+- Requires both a specific key and target locale
+- Helps improve translation quality and alternatives
+- Only works with single keys, not multiple keys
+- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL, Google Translate, etc.)
 
 ### `dire --check`
 
