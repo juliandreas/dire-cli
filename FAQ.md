@@ -19,6 +19,7 @@ Dire supports:
 
 - **DeepL** - Set `DIRE_DEEPL_API_KEY`
 - **Google Translate** - Set `DIRE_GOOGLE_API_KEY`
+- **Azure AI Translator** - Set `DIRE_AZURE_API_KEY`
 - **OpenAI** - Set `DIRE_OPENAI_API_KEY`
 - **Claude** - Set `DIRE_CLAUDE_API_KEY`
 - **Google Gemini** - Set `DIRE_GEMINI_API_KEY`

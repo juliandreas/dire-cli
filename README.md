@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n files using translation providers, glossary definitions, and translation memory
+Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n JSON files using translation and AI providers, glossary definitions, and translation memory
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@ BYOK (Bring Your Own Key) - Use your own provider API keys for maximum control a
 
 ## Features
 
-- **Multi-provider support:** DeepL, Google Translate, Claude, OpenAI, Gemini, Mistral, and DeepSeek
+- **Multi-provider support:** DeepL, Google Translate, Azure AI Translator, Claude, OpenAI, Gemini, Mistral, and DeepSeek
 - **Intelligent translation reuse:** automatic sourcing from glossary definitions and translation memory
 - **Translation rephrasing:** generate alternative phrasings to improve quality
 - **CI/CD integration:** lint translation completeness in build pipelines with `--check` flag
@@ -78,6 +78,7 @@ npx dire
 | `dire --keys <key>` | Translate specific key(s): `dire --keys "auth.login,auth.register"` |
 | `dire --sourced`    | Apply only glossary and memory translations                         |
 | `dire --stub`       | Create placeholder translations (empty strings)                     |
+| `dire --prune`      | Remove orphaned keys from non-reference locales                     |
 | `dire --check`      | Lint translation completeness for CI/CD                             |
 
 See [COMMANDS.md](COMMANDS.md) for the complete command reference.
@@ -86,15 +87,16 @@ See [COMMANDS.md](COMMANDS.md) for the complete command reference.
 
 Set your API key in any `.env*` file in your project root:
 
-| Provider                                               | Environment Variable    |
-| ------------------------------------------------------ | ----------------------- |
-| [DeepL](https://www.deepl.com/)                        | `DIRE_DEEPL_API_KEY`    |
-| [Google Translate](https://cloud.google.com/translate) | `DIRE_GOOGLE_API_KEY`   |
-| [OpenAI](https://openai.com/)                          | `DIRE_OPENAI_API_KEY`   |
-| [Claude](https://www.anthropic.com/)                   | `DIRE_CLAUDE_API_KEY`   |
-| [Gemini](https://gemini.google.com/)                   | `DIRE_GEMINI_API_KEY`   |
-| [Mistral](https://mistral.ai/)                         | `DIRE_MISTRAL_API_KEY`  |
-| [DeepSeek](https://deepseek.com/)                      | `DIRE_DEEPSEEK_API_KEY` |
+| Provider                                                                                    | Environment Variable    |
+| ------------------------------------------------------------------------------------------- | ----------------------- |
+| [DeepL](https://www.deepl.com/)                                                             | `DIRE_DEEPL_API_KEY`    |
+| [Google Translate](https://cloud.google.com/translate)                                      | `DIRE_GOOGLE_API_KEY`   |
+| [Azure AI Translator](https://azure.microsoft.com/en-us/products/ai-services/ai-translator) | `DIRE_AZURE_API_KEY`    |
+| [OpenAI](https://openai.com/)                                                               | `DIRE_OPENAI_API_KEY`   |
+| [Claude](https://www.anthropic.com/)                                                        | `DIRE_CLAUDE_API_KEY`   |
+| [Gemini](https://gemini.google.com/)                                                        | `DIRE_GEMINI_API_KEY`   |
+| [Mistral](https://mistral.ai/)                                                              | `DIRE_MISTRAL_API_KEY`  |
+| [DeepSeek](https://deepseek.com/)                                                           | `DIRE_DEEPSEEK_API_KEY` |
 
 Example `.env` file:
 
