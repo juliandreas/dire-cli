@@ -30,6 +30,17 @@ Configure providers in `.dire.toml` and set your active provider.
 
 ## Configuration
 
+### Where can I find the complete configuration reference?
+
+See [CONFIGURATION.md](CONFIGURATION.md) for a comprehensive guide covering:
+
+- Valid provider names
+- Provider categories (LLM vs translator services)
+- Complete `.dire.toml` file structure
+- Glossary configuration
+- Project context and style guide options
+- Examples for all configuration scenarios
+
 ### Why do I need to use `en-US` instead of `en`?
 
 Dire requires full BCP-47 locale codes (language + region). Bare language codes like `en` are ambiguous (US, GB, AU, …). Use:

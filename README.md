@@ -54,7 +54,7 @@ npx dire
    dire init
    ```
 
-   This creates a `.dire.toml` file in your project root. Edit it to match your project structure. You can also reference the [config.template.toml](config.template.toml) for all available options.
+   This creates a `.dire.toml` file in your project root. Edit it to match your project structure. See [CONFIGURATION.md](CONFIGURATION.md) for complete configuration reference.
 
    Note: The `.dire.toml` config file is optional. You can configure everything via CLI flags (see [Configuration Override Flags](COMMANDS.md#configuration-override-flags)). However, the TOML file offers quality-of-life features like glossary management and multiple pre-configured providers for quick switching.
 
