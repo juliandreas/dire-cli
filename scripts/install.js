@@ -3,17 +3,14 @@
 import { createWriteStream } from "fs";
 import { mkdir, chmod, unlink } from "fs/promises";
 import { fileURLToPath } from "url";
-import { createRequire } from "module";
 import { exec } from "child_process";
 import { promisify } from "util";
 import path from "path";
 import https from "https";
+import packageJson from "../package.json" with { type: "json" };
 
-// Get __dirname equivalent and package.json
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const require = createRequire(import.meta.url);
-const packageJson = require("../package.json");
+// Get __dirname equivalent
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const execAsync = promisify(exec);
 
 // Platform mapping
