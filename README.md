@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-Dire (French for "to say", pronounced <em>/diʁ/</em>) is a Go-based CLI that automatically processes missing translations in your i18n JSON files using translation and AI providers, glossary definitions, and translation memory
+Dire (French for "to say", pronounced /diʁ/) is a Go-based CLI tool that automatically handles translation and maintenance of your i18n JSON files using translation and AI providers, glossary definitions, and translation memory
 </p>
 
 <p align="center">
@@ -25,13 +25,13 @@ BYOK (Bring Your Own Key) - Use your own provider API keys for maximum control a
 ## Features
 
 - **Multi-provider support:** DeepL, Google Translate, Azure AI Translator, Claude, OpenAI, Gemini, Mistral, and DeepSeek
-- **Intelligent translation reuse:** automatic sourcing from glossary definitions and translation memory
+- **Automatic translation reuse:** sourcing from glossary definitions and translation memory
 - **Translation rephrasing:** generate alternative phrasings to improve quality
-- **CI/CD integration:** lint translation completeness in build pipelines with `--check` flag
-- **Glossary management:** ensure consistent terminology across all translations
-- **High-performance:** native Go binary with smart batching and concurrent processing
-- **Nested object support:** handles complex JSON structures and deeply nested translations
+- **Completeness checking:** lint translation files in CI/CD pipelines with `--check` flag
+- **Cleanup orphaned keys:** remove translations that no longer exist in your reference locale with `--prune`
 - **Context-aware translations:** provide domain-specific context for better results
+- **Nested object support:** handles complex JSON structures and deeply nested translations
+- **High-performance:** native Go binary with smart batching and concurrent processing
 
 ## Installation
 
@@ -54,9 +54,9 @@ npx dire
    dire init
    ```
 
-   This creates a `.dire.toml` file in your project root. Edit it to match your project structure. See [CONFIGURATION.md](CONFIGURATION.md) for complete configuration reference.
+   This creates a `.dire.toml` file in your project root. Edit it to match your project structure. See [CONFIGURATION.md](docs/CONFIGURATION.md) for complete configuration reference.
 
-   Note: The `.dire.toml` config file is optional. You can configure everything via CLI flags (see [Configuration Override Flags](COMMANDS.md#configuration-override-flags)). However, the TOML file offers quality-of-life features like glossary management and multiple pre-configured providers for quick switching.
+   Note: The `.dire.toml` config file is optional. You can configure everything via CLI flags (see [Configuration Override Flags](docs/COMMANDS.md#configuration-override-flags)). However, the TOML file offers quality-of-life features like glossary management and multiple pre-configured providers for quick switching.
 
 2. **Set Up API Keys**
 
@@ -81,7 +81,7 @@ npx dire
 | `dire --prune`      | Remove orphaned keys from non-reference locales                     |
 | `dire --check`      | Lint translation completeness for CI/CD                             |
 
-See [COMMANDS.md](COMMANDS.md) for the complete command reference.
+See [COMMANDS.md](docs/COMMANDS.md) for the complete command reference.
 
 ## Supported Providers
 

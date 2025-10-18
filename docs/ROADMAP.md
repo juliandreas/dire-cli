@@ -8,23 +8,7 @@ This document outlines the planned features and improvements for Dire. Items are
 
 **Other Provider Considerations**
 
-- Azure Translator
-- Google Translate
 - Amazon Translate
-
-### Other File Format Support
-
-**YAML/YML Files**
-
-- Support for nested YAML translation files
-- Common in Ruby on Rails and other frameworks
-- Preserve formatting and comments
-
-**XLIFF (XML Localization Interchange File Format)**
-
-- Industry-standard translation exchange format
-- Support for translation memory and workflow metadata
-- Common in professional localization workflows
 
 ### Enhanced Translation Features
 
@@ -59,13 +43,17 @@ This document outlines the planned features and improvements for Dire. Items are
 
 ## Timeline
 
+### Short Term (1-3 months)
+
+- Add support for additional providers
+
 ### Medium Term (3-6 months)
 
 - Multiple files per locale with glob pattern support
-- Translation review and quality checking
 
 ### Long Term (6+ months)
 
+- Translation review and quality checking
 - Other file format support
 - IDE integrations
 

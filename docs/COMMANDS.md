@@ -9,6 +9,9 @@
 | `dire init --force`                              | Overwrite existing configuration file                     | `dire init --force`                                |
 | `dire --keys <key>`                              | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"`           |
 | `dire --sourced`                                 | Apply only glossary and memory translations (no provider) | `dire --sourced`                                   |
+| `dire --glossary`                                | Apply only glossary translations (no provider)            | `dire --glossary`                                  |
+| `dire --glossary --overwrite`                    | Overwrite existing translations with glossary values      | `dire --glossary --overwrite`                      |
+| `dire --memory`                                  | Apply only memory translations (no provider)              | `dire --memory`                                    |
 | `dire --stub`                                    | Create placeholder translations (empty strings)           | `dire --stub`                                      |
 | `dire --prune`                                   | Remove orphaned keys from non-reference locales           | `dire --prune`                                     |
 | `dire --include-stubs`                           | Include empty strings as missing translations             | `dire --include-stubs`                             |
@@ -63,15 +66,44 @@ These flags override settings from your `.dire.toml` configuration file:
 
 ### `dire --sourced`
 
-- Uses only your existing glossary entries
+- Uses both glossary entries and translation memory
 - Reuses existing translations found in your files
 - Skips provider-powered translation generation
+- Convenience flag equivalent to using `--glossary --memory` together
+- No API key required
+
+### `dire --glossary`
+
+- Uses only your configured glossary entries
+- Applies exact matches from your glossary configuration
+- Skips translation memory and provider-powered translation
+- No API key required
+
+### `dire --glossary --overwrite`
+
+- Overwrites existing translations with glossary values
+- Requires `--glossary` flag (cannot be used with `--sourced` or `--memory`)
+- Useful for enforcing glossary terms across all translation files
+- Updates translations even when they already exist
+- No API key required
+
+**Use Cases:**
+
+- **Terminology updates**: Apply glossary changes to existing translations
+- **Consistency enforcement**: Ensure all files use the same glossary terms
+- **Brand alignment**: Update translations to match new brand guidelines
+
+### `dire --memory`
+
+- Reuses only existing translations found in your files (translation memory)
+- Finds matches based on source text across different keys
+- Skips glossary and provider-powered translation
 - No API key required
 
 ### `dire --stub`
 
 - Creates empty string placeholders for all missing translations
-- Skips AI translation generation
+- Skips provider translation generation
 - Useful for setting up translation file structure
 - No API key required
 
@@ -80,8 +112,8 @@ These flags override settings from your `.dire.toml` configuration file:
 - Removes orphaned translation keys that don't exist in the reference locale
 - Identifies the reference locale (the one with the most keys)
 - Cleans up keys from other locales that are no longer in the reference
-- Helps maintain consistency across translation files
-
+- Keeps your translation files synchronized and maintainable over time
+- Essential for ongoing i18n file maintenance as your project evolves
 - No API key required
 
 ### `dire --include-stubs`
@@ -92,7 +124,7 @@ These flags override settings from your `.dire.toml` configuration file:
 
 ### `dire --context <context>`
 
-- Provides additional context to the AI model
+- Provides additional context to improve translation quality
 - Improves translation accuracy
 - Ensures domain-specific terminology
 - Maintains consistent tone and style
@@ -110,7 +142,7 @@ These flags override settings from your `.dire.toml` configuration file:
 
 - Lints translation files for completeness issues
 - Exits with code 0 if complete, 1 if missing translations found
-- Perfect for CI/CD pipelines to prevent incomplete translations
+- Perfect for CI/CD pipelines to prevent incomplete translations from reaching production
 - Use `--format json` for machine-readable output
 - Respects `--include-stubs` (treats empty strings as missing)
 - Supports `--keys` flag to lint specific translation keys only
