@@ -1,7 +1,7 @@
 {
   "name": "dire",
   "license": "SEE LICENSE IN LICENSE",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "Go-based CLI tool that automatically handles translation and maintenance of your i18n JSON files using translation and AI providers, glossary definitions, and translation memory",
   "keywords": [
     "i18n",

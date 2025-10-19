@@ -128,7 +128,7 @@ temperature = 0.2
 
 [[providers.configuration]]
 name = "gemini"
-model = "gemini-1.5-flash"
+model = "gemini-2.5-flash"
 maxTokens = 32000
 temperature = 0.2
 ```
@@ -336,7 +336,7 @@ temperature = 0.2
 
 [[providers.configuration]]
 name = "gemini"
-model = "gemini-1.5-flash"
+model = "gemini-2.5-flash"
 maxTokens = 32000
 temperature = 0.2
 
