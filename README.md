@@ -11,7 +11,11 @@
 </p>
 
 <p align="center">
-Dire (French for "to say", pronounced /diʁ/) is a Go-based CLI tool that automatically handles translation and maintenance of your i18n JSON files using translation and AI providers, glossary definitions, and translation memory
+Automated JSON i18n maintenance for developers
+</p>
+
+<p align="center">
+Dire (French for "to say", pronounced /diʁ/) is a Go-based CLI tool that automatically translates and maintains your i18n JSON files using translation and AI providers, glossary definitions, and translation memory
 </p>
 
 <p align="center">

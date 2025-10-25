@@ -13,21 +13,30 @@ Commands for initializing and configuring Dire.
 
 ## Translation Commands
 
-Commands for generating and managing translations in your i18n files.
+### Universal Translation Commands
 
-| Command                                          | Description                                               | Example                                            |
-| ------------------------------------------------ | --------------------------------------------------------- | -------------------------------------------------- |
-| `dire`                                           | Translate all missing keys in your i18n files             | `dire`                                             |
-| `dire --keys <key>`                              | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"`           |
-| `dire --sourced`                                 | Apply only glossary and memory translations (no provider) | `dire --sourced`                                   |
-| `dire --glossary`                                | Apply only glossary translations (no provider)            | `dire --glossary`                                  |
-| `dire --glossary --overwrite`                    | Overwrite existing translations with glossary values      | `dire --glossary --overwrite`                      |
-| `dire --memory`                                  | Apply only memory translations (no provider)              | `dire --memory`                                    |
-| `dire --stub`                                    | Create placeholder translations (empty strings)           | `dire --stub`                                      |
-| `dire --context <context>`                       | Add context for better AI translations                    | `dire --context "E-commerce checkout"`             |
-| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations       | `dire --rephrase --keys auth.login --locale en-US` |
-| `dire --include-stubs`                           | Include empty strings as missing translations             | `dire --include-stubs`                             |
-| `dire --no-trim`                                 | Preserve whitespace in translations                       | `dire --no-trim`                                   |
+Commands that work with all provider types (LLMs and translation services).
+
+| Command                       | Description                                               | Example                                  |
+| ----------------------------- | --------------------------------------------------------- | ---------------------------------------- |
+| `dire`                        | Translate all missing keys in your i18n files             | `dire`                                   |
+| `dire --keys <key>`           | Translate specific key(s)                                 | `dire --keys "auth.login,auth.register"` |
+| `dire --sourced`              | Apply only glossary and memory translations (no provider) | `dire --sourced`                         |
+| `dire --glossary`             | Apply only glossary translations (no provider)            | `dire --glossary`                        |
+| `dire --glossary --overwrite` | Overwrite existing translations with glossary values      | `dire --glossary --overwrite`            |
+| `dire --memory`               | Apply only memory translations (no provider)              | `dire --memory`                          |
+| `dire --stub`                 | Create placeholder translations (empty strings)           | `dire --stub`                            |
+| `dire --include-stubs`        | Include empty strings as missing translations             | `dire --include-stubs`                   |
+| `dire --no-trim`              | Preserve whitespace in translations                       | `dire --no-trim`                         |
+
+### LLM-Only Translation Commands
+
+Advanced commands requiring LLM providers (Claude, OpenAI, Gemini, Mistral). These do **NOT** work with translation services like DeepL or Google Translate.
+
+| Command                                          | Description                                         | Example                                            |
+| ------------------------------------------------ | --------------------------------------------------- | -------------------------------------------------- |
+| `dire --context <context>`                       | Add context for better AI translations              | `dire --context "E-commerce checkout"`             |
+| `dire --rephrase --keys <key> --locale <locale>` | Generate rephrase options for existing translations | `dire --rephrase --keys auth.login --locale en-US` |
 
 ## File Maintenance Commands
 
@@ -43,11 +52,12 @@ Commands for managing and maintaining i18n file structure and completeness.
 
 Universal flags that work across all commands.
 
-| Command          | Description           | Example          |
-| ---------------- | --------------------- | ---------------- |
-| `dire --debug`   | Enable debug output   | `dire --debug`   |
-| `dire --help`    | Show help information | `dire --help`    |
-| `dire --version` | Show current version  | `dire --version` |
+| Command          | Description                        | Example          |
+| ---------------- | ---------------------------------- | ---------------- |
+| `dire --verbose` | Show detailed progress information | `dire --verbose` |
+| `dire --debug`   | Enable debug logging               | `dire --debug`   |
+| `dire --help`    | Show help information              | `dire --help`    |
+| `dire --version` | Show current version               | `dire --version` |
 
 ## Configuration Override Flags
 
@@ -142,7 +152,6 @@ These flags override settings from your `.dire.toml` configuration file:
 - Improves translation accuracy
 - Ensures domain-specific terminology
 - Maintains consistent tone and style
-- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL, Google Translate, etc.)
 
 #### `dire --rephrase --keys <key> --locale <locale>`
 
@@ -150,7 +159,6 @@ These flags override settings from your `.dire.toml` configuration file:
 - Requires both a specific key and target locale
 - Helps improve translation quality and alternatives
 - Only works with single keys, not multiple keys
-- **Note**: Only works with LLM services (Claude, OpenAI, etc.), not translation services (DeepL, Google Translate, etc.)
 
 #### `dire --include-stubs`
 
