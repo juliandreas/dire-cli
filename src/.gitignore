@@ -1,0 +1,40 @@
+nul
+
+.DS_Store
+
+/build/dist/
+/build/**/dist/
+/build/tmp/
+/build/**/tmp/
+*.exe
+
+.env
+.env.*
+
+!.env.example
+!.env.local.example
+
+# Private keys and certificates (NEVER commit real keys/certs)
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+*.jks
+*.keystore
+*.csr
+*.asc
+private.key
+signing.key
+cert.key
+server.key
+client.key
+*.private
+*.secret
+
+# Allow test fixtures with explicit un-ignore (if needed)
+# !fixtures/*.key
+# !fixtures/*.pem
+# !test/fixtures/*.crt

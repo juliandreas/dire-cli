@@ -1,0 +1,18 @@
+{
+  "app_name": "ShopFlow",
+  "auth": {
+    "login": {
+      "email": "E-postadress",
+      "password": "Lösenord"
+    }
+  },
+  "cart": {
+    "title": "Varukorg"
+  },
+  "common": {
+    "loading": "Laddar..."
+  },
+  "dashboard": {
+    "bye": "Hej då"
+  }
+}

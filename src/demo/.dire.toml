@@ -1,0 +1,109 @@
+# Files configuration
+[files]
+# Where to find translation files
+directory = "demo"
+
+# Map file names/patterns to languages
+[files.locales]
+"en.json" = "en-US"
+"sv.json" = "sv-SE"
+"da.json" = "da-DK"
+
+# Translation providers configuration
+[providers]
+# Specify which provider to use
+active = "openai"
+
+# Define LLM providers you want to have available
+[[providers.configuration]]
+name = "openai"
+model = "gpt-4.1-nano"
+maxTokens = 32000
+temperature = 0.2
+
+[[providers.configuration]]
+name = "claude"
+model = "claude-3-5-haiku-latest"
+maxTokens = 8192
+temperature = 0.2
+
+[[providers.configuration]]
+name = "gemini"
+model = "gemini-2.5-flash"
+maxTokens = 32000
+temperature = 0.2
+
+[[providers.configuration]]
+name = "mistral"
+model = "mistral-small-latest"
+maxTokens = 32000
+temperature = 0.2
+
+[[providers.configuration]]
+name = "deepseek"
+model = "deepseek-chat"
+maxTokens = 8192
+temperature = 0.2
+
+# Project context
+[project]
+name = "E-commerce Platform"
+description = "Online shopping platform with user accounts, product catalog, and order management"
+domain = "e-commerce"
+
+# Style guide configuration
+[styleGuide]
+# Translation formality (optional, defaults to "automatic")
+formality = "automatic" # automatic | formal | informal
+
+# Glossary configuration
+[glossary]
+autoSort = true
+entries = [
+  { "en-US" = "Abeyance", "sv-SE" = "Vilande" },
+  { "en-US" = "Areas", "sv-SE" = "Areor" },
+  { "en-US" = "Average score", "sv-SE" = "Medelvärde" },
+  { "en-US" = "Blue", "sv-SE" = "Blå" },
+  { "en-US" = "Blue Grading", "sv-SE" = "Bluegradering" },
+  { "en-US" = "Blue Score", "sv-SE" = "Bluepoäng" },
+  { "en-US" = "Blue Trend", "sv-SE" = "Bluetrend" },
+  { "en-US" = "Business Interruption", "sv-SE" = "Avbrott" },
+  { "en-US" = "Client", "sv-SE" = "Kund" },
+  { "en-US" = "Completed", "sv-SE" = "Klar" },
+  { "en-US" = "Cost-Benefit Analysis", "sv-SE" = "Kostnadsnyttoanalys" },
+  { "en-US" = "Cost-Benefit Ratio", "sv-SE" = "Förhållande kostnad/nytta" },
+  { "en-US" = "Dashboard", "sv-SE" = "Dashboard" },
+  { "en-US" = "E-mail", "sv-SE" = "E-post" },
+  { "en-US" = "Estimated Cost to Complete", "sv-SE" = "Bedömd kostnad för åtgärd" },
+  { "en-US" = "Estimated Risk Reduction", "sv-SE" = "Beräknad riskreduktion" },
+  { "en-US" = "General recommendations", "sv-SE" = "Generella rekommendationer" },
+  { "en-US" = "Green", "sv-SE" = "Grön" },
+  { "en-US" = "Impersonate", "sv-SE" = "Imitera" },
+  { "en-US" = "Important Notice", "sv-SE" = "Ansvarsfriskrivning" },
+  { "en-US" = "In Progress", "sv-SE" = "Pågående" },
+  { "en-US" = "Loss Estimate After Implementation", "sv-SE" = "Skadekostnad efter åtgärd" },
+  { "en-US" = "Loss Estimate Prior to Implementation", "sv-SE" = "Skadekostnad före åtgärd" },
+  { "en-US" = "Module", "sv-SE" = "Modul" },
+  { "en-US" = "N/A", "sv-SE" = "N/A" },
+  { "en-US" = "No Progress", "sv-SE" = "Ingen åtgärd" },
+  { "en-US" = "Not applicable", "sv-SE" = "Ej tillämplig" },
+  { "en-US" = "Not Set", "sv-SE" = "Ej vald" },
+  { "en-US" = "Participants", "sv-SE" = "Deltagare" },
+  { "en-US" = "Property", "sv-SE" = "Egendom" },
+  { "en-US" = "Raw data", "sv-SE" = "Rådata" },
+  { "en-US" = "Recommendation Report", "sv-SE" = "Rekommendationsrapport" },
+  { "en-US" = "Recommendations", "sv-SE" = "Rekommendationer" },
+  { "en-US" = "Red", "sv-SE" = "Röd" },
+  { "en-US" = "Rejected", "sv-SE" = "Avvisad" },
+  { "en-US" = "Scenario description", "sv-SE" = "Scenariobeskrivning" },
+  { "en-US" = "Site", "sv-SE" = "Anläggning" },
+  { "en-US" = "Site response", "sv-SE" = "Anläggningssvar" },
+  { "en-US" = "SPOE Check", "sv-SE" = "Kvalitetsgranskning av besiktning" },
+  { "en-US" = "Survey", "sv-SE" = "Besiktning" },
+  { "en-US" = "Survey date", "sv-SE" = "Besiktningsdatum" },
+  { "en-US" = "Survey type", "sv-SE" = "Besiktningstyp" },
+  { "en-US" = "Under Review", "sv-SE" = "Under granskning" },
+  { "en-US" = "User Web", "sv-SE" = "User Web" },
+  { "en-US" = "Withdrawn", "sv-SE" = "Återkallad" },
+  { "en-US" = "Yellow", "sv-SE" = "Gul" },
+]

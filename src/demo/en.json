@@ -1,0 +1,53 @@
+{
+  "app_name": "ShopFlow",
+  "auth": {
+    "login": {
+      "title": "Login to your account",
+      "email": "Email Address",
+      "password": "Password",
+      "button": "Login now",
+      "forgot_password": "Forgot your password?",
+      "remember_me": "Remember me"
+    },
+    "logout": {
+      "confirm": "Are you sure you want to logout?",
+      "button": "Logout {name}"
+    }
+  },
+  "common": {
+    "save": "Save changes",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back to your dashboard",
+    "recent_orders": "Recent Orders",
+    "quick_actions": "Quick Actions"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "items": "Items in cart",
+    "total": "Cart total",
+    "checkout": "Proceed to checkout",
+    "checkout_with_paypal": "Checkout with PayPal"
+  },
+  "modules": {
+    "date": "{{creator}} dating from {{date}}",
+    "modes.subTitle": "Support from the <strong>European Union</strong>.",
+    "minAndMax": "<strong>{{min}}</strong> and <strong>{{max}}</strong>",
+    "tagged": "tagged \"{{ tags }}\""
+  },
+  "products": {
+    "search": "Search products",
+    "filters": "Product filters",
+    "sort_by": "Sort by price"
+  },
+  "orders": {
+    "status": "Order status",
+    "tracking": "Track your order",
+    "api_webhook": "API webhook notifications"
+  }
+}

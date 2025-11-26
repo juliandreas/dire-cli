@@ -1,0 +1,127 @@
+version: "2"
+
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+linters:
+  settings:
+    decorder:
+      disable-dec-order-check: false
+      disable-init-func-first-check: false
+      disable-dec-num-check: true
+
+    govet:
+      enable-all: true
+      disable:
+        - fieldalignment # Can be noisy for structs
+
+    gocyclo:
+      min-complexity: 15
+
+    goconst:
+      min-len: 3
+      min-occurrences: 3
+
+    lll:
+      line-length: 120
+
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+      disabled-checks:
+        - unnamedResult # CLI apps often have simple returns
+
+    misspell:
+      locale: US
+      mode: restricted
+
+    tagliatelle:
+      case:
+        rules:
+          json: camel
+          yaml: camel
+
+    revive:
+      rules:
+        - name: package-comments
+          disabled: true
+        - name: package-directory-mismatch
+        - name: identical-ifelseif-branches
+        - name: identical-ifelseif-conditions
+        - name: identical-switch-branches
+        - name: identical-switch-conditions
+        - name: unsecure-url-scheme
+        - name: use-waitgroup-go
+        - name: useless-fallthrough
+
+    varnamelen:
+      min-name-length: 2
+
+    forbidigo:
+      forbid:
+        - pattern: 'json\.Marshal'
+          msg: "Use utils.MarshalJSON instead of json.Marshal for consistent formatting"
+        - pattern: 'json\.MarshalIndent'
+          msg: "Use utils.MarshalJSON with indent parameter instead of json.MarshalIndent"
+
+  enable:
+    - asasalint # Check for pass []any as any in variadic func(...any).
+    - bodyclose # Checks whether HTTP response body is closed successfully.
+    - canonicalheader # Checks whether net/http.Header uses canonical header.
+    - contextcheck # Check whether the function uses a non-inherited context.
+    - copyloopvar # A linter detects places where loop variables are copied.
+    - decorder # Checks declaration order of constants, variables, types, and functions.
+    - dogsled # Checks assignments with too many blank identifiers (e.g. x, , , _, := f()).
+    - dupl # Detects duplicate fragments of code.
+    - dupword # Checks for duplicate words in the source code.
+    - err113 # Go linter to check the errors handling expressions.
+    - errchkjson # Detects errors in JSON unmarshalling.
+    - errname # Checks that sentinel errors are prefixed with the Err and error types are suffixed with the Error.
+    - exhaustruct # Checks if all structure fields are initialized.
+    - exptostd # Detects functions from golang.org/x/exp/ that can be replaced by std functions.
+    - fatcontext # Detects nested contexts in loops and function literals.
+    - funcorder # Checks the order of functions, methods, and constructors.
+    - funlen # Checks for long functions.
+    - gocheckcompilerdirectives # Checks that go compiler directive comments (//go:) are valid.
+    - gochecknoglobals # Check that no global variables exist.
+    - goconst # Finds repeated strings that could be replaced by a constant.
+    - gocritic # Various checks.
+    - gocyclo # Computes and checks the cyclomatic complexity of functions.
+    - godot # Check if comments end in a period.
+    - godox # Detects usage of FIXME, TODO and other keywords inside comments.
+    - gosec # Inspects source code for security problems.
+    - gosmopolitan # Report certain i18n/l10n anti-patterns in your Go codebase.
+    - iface # Detect the incorrect use of interfaces, helping developers avoid interface pollution.
+    - intrange # Intrange is a linter to find places where for loops could make use of an integer range.
+    - lll # Reports long lines.
+    - misspell # Finds commonly misspelled English words.
+    - mnd # An analyzer to detect magic numbers.
+    - musttag # Enforce field tags in (un)marshaled structs.
+    - nakedret # Checks that functions with naked returns are not longer than a maximum size (can be zero).
+    - nestif # Reports deeply nested if statements.
+    - nilerr # Finds the code that returns nil even if it checks that the error is not nil.
+    - nilnesserr # Reports constructs that checks for err != nil, but returns a different nil value error.
+    - noctx # Finds sending http request without context.Context.
+    - perfsprint # Checks that fmt.Sprintf can be replaced with a faster alternative.
+    - prealloc # Finds slice declarations that could potentially be pre-allocated.
+    - reassign # Checks that package variables are not reassigned.
+    - revive # Fast, configurable, extensible, flexible, and beautiful linter for Go. Drop-in replacement of golint.
+    - sloglint # Ensure consistent code style when using log/slog.
+    - tagalign # Check that struct tags are well aligned.
+    - tagliatelle # Checks the struct tags.
+    - tparallel # Tparallel detects inappropriate usage of t.Parallel() method in your Go test codes.
+    - testableexamples # Linter checks if examples are testable (have an expected output).
+    - testpackage # Linter that makes you use a separate _test package.
+    - unconvert # Remove unnecessary type conversions.
+    - unparam # Reports unused function parameters.
+    - usestdlibvars # A linter that detect the possibility to use variables/constants from the Go standard library.
+    - varnamelen # Checks that the length of a variable's name matches its scope.
+    - forbidigo # Forbids identifiers.
+
